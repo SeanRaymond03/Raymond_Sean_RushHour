@@ -55,7 +55,7 @@
             playBtn.Clicked += OnPlayClicked;
             mainStack.Add(playBtn);
 
-            // Stats Frame
+            // Stats Border
             var statsStack = new VerticalStackLayout { Spacing = 10 };
             statsStack.Add(new Label
             {
@@ -83,16 +83,15 @@
             statsStack.Add(highScoreLabel);
             statsStack.Add(gamesPlayedLabel);
 
-            var statsFrame = new Frame
+            var statsBorder = new Border
             {
-                CornerRadius = 10,
-                BorderColor = Color.FromArgb("#4ECDC4"),
+                Stroke = Color.FromArgb("#4ECDC4"),
+                StrokeThickness = 2,
                 Padding = 20,
-                HasShadow = true,
                 Content = statsStack
             };
 
-            mainStack.Add(statsFrame);
+            mainStack.Add(statsBorder);
 
             Content = new ScrollView { Content = mainStack };
         }

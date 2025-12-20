@@ -13,7 +13,6 @@ namespace Raymond_Sean_RushHour
         private Picker _difficultyPicker;
         private Label _fontSizeLabel;
         private Label _timeLimitLabel;
-        private Frame _colorPreviewFrame;
         private ScrollView _scrollView;
 
         public SettingsPage()
@@ -37,6 +36,7 @@ namespace Raymond_Sean_RushHour
                 Text = "Theme",
                 FontSize = 20,
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = "BBHBogle",
                 TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
             });
 
@@ -54,6 +54,7 @@ namespace Raymond_Sean_RushHour
                         Text = "Dark Mode:",
                         VerticalOptions = LayoutOptions.Center,
                         FontSize = _appSettings.FontSize,
+                        FontFamily = "BBHBogle",
                         TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
                     },
                     _darkModeSwitch
@@ -68,6 +69,7 @@ namespace Raymond_Sean_RushHour
                 Text = "Font Size",
                 FontSize = 20,
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = "BBHBogle",
                 TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
             });
 
@@ -75,6 +77,7 @@ namespace Raymond_Sean_RushHour
             {
                 Text = $"Font Size: {_appSettings.FontSize}px",
                 FontSize = _appSettings.FontSize,
+                FontFamily = "BBHBogle",
                 TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
             };
             mainStack.Add(_fontSizeLabel);
@@ -91,6 +94,7 @@ namespace Raymond_Sean_RushHour
                 Text = "Difficulty Mode",
                 FontSize = 20,
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = "BBHBogle",
                 TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
             });
 
@@ -107,72 +111,13 @@ namespace Raymond_Sean_RushHour
 
             mainStack.Add(new BoxView { Color = Color.FromArgb("#CCCCCC"), HeightRequest = 1 });
 
-            // Color Section
-            mainStack.Add(new Label
-            {
-                Text = "Player Car Color",
-                FontSize = 20,
-                FontAttributes = FontAttributes.Bold,
-                TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
-            });
-
-            var colorGrid = new Grid();
-            colorGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            colorGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            colorGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            colorGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            colorGrid.ColumnSpacing = 10;
-            colorGrid.RowSpacing = 10;
-            colorGrid.Padding = new Thickness(0, 10);
-
-            var colors = new (string name, string hex)[]
-            {
-                ("Red", "#FF6B6B"),
-                ("Teal", "#4ECDC4"),
-                ("Purple", "#512BD4"),
-                ("Green", "#95E1D3")
-            };
-
-            int row = 0, col = 0;
-            foreach (var (name, hex) in colors)
-            {
-                var btn = new Button
-                {
-                    Text = name,
-                    BackgroundColor = Color.FromArgb(hex),
-                    TextColor = Colors.White
-                };
-                btn.Clicked += (s, e) => OnColorSelected(hex);
-                colorGrid.Add(btn, col, row);
-                col++;
-                if (col > 1) { col = 0; row++; }
-            }
-
-            mainStack.Add(colorGrid);
-
-            _colorPreviewFrame = new Frame
-            {
-                CornerRadius = 5,
-                Padding = 15,
-                BorderColor = Color.FromArgb(_appSettings.BoxColor),
-                Content = new Label
-                {
-                    Text = "Preview",
-                    HorizontalTextAlignment = TextAlignment.Center,
-                    FontSize = 16,
-                    TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
-                }
-            };
-            mainStack.Add(_colorPreviewFrame);
-
-            mainStack.Add(new BoxView { Color = Color.FromArgb("#CCCCCC"), HeightRequest = 1 });
-
             // Time Limit Section
             mainStack.Add(new Label
             {
                 Text = "Time Limit (seconds)",
                 FontSize = 20,
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = "BBHBogle",
                 TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
             });
 
@@ -180,6 +125,7 @@ namespace Raymond_Sean_RushHour
             {
                 Text = _appSettings.TimeLimit == 0 ? "Time Limit: Unlimited" : $"Time Limit: {_appSettings.TimeLimit}s",
                 FontSize = _appSettings.FontSize,
+                FontFamily = "BBHBogle",
                 TextColor = _appSettings.DarkMode ? Colors.White : Colors.Black
             };
             mainStack.Add(_timeLimitLabel);
@@ -197,7 +143,10 @@ namespace Raymond_Sean_RushHour
                 BackgroundColor = Color.FromArgb("#4ECDC4"),
                 TextColor = Colors.White,
                 CornerRadius = 5,
-                Padding = new Thickness(10, 15)
+                Padding = new Thickness(10, 15),
+                FontFamily = "BBHBogle",
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 16
             };
             saveBtn.Clicked += OnSaveClicked;
             mainStack.Add(saveBtn);
@@ -210,6 +159,8 @@ namespace Raymond_Sean_RushHour
         {
             _appSettings.DarkMode = e.Value;
             BackgroundColor = _appSettings.DarkMode ? Colors.Black : Colors.White;
+            // Rebuild UI to apply dark mode changes
+            BuildUI();
         }
 
         private void OnFontSizeChanged(object sender, ValueChangedEventArgs e)
@@ -232,12 +183,6 @@ namespace Raymond_Sean_RushHour
             {
                 _appSettings.DifficultyMode = difficulty;
             }
-        }
-
-        private void OnColorSelected(string colorHex)
-        {
-            _appSettings.BoxColor = colorHex;
-            _colorPreviewFrame.BorderColor = Color.FromArgb(colorHex);
         }
 
         private async void OnSaveClicked(object sender, EventArgs e)

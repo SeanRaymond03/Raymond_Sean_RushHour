@@ -50,11 +50,11 @@ namespace Raymond_Sean_RushHour
                 HorizontalTextAlignment = TextAlignment.Center
             };
 
-            var scoreFrame = new Frame
+            var scoreBorder = new Border
             {
-                CornerRadius = 10,
-                BorderColor = Color.FromArgb(_appSettings.BoxColor),
-                HasShadow = true,
+                Stroke = Color.FromArgb(_appSettings.BoxColor),
+                StrokeThickness = 2,
+                Padding = 15,
                 Content = new VerticalStackLayout
                 {
                     Spacing = 5,
@@ -72,7 +72,7 @@ namespace Raymond_Sean_RushHour
                     }
                 }
             };
-            _mainStack.Add(scoreFrame);
+            _mainStack.Add(scoreBorder);
 
             // Stats Grid
             var statsGrid = new Grid();
@@ -84,11 +84,11 @@ namespace Raymond_Sean_RushHour
             statsGrid.RowSpacing = 10;
 
             _distanceLabel = new Label { FontSize = 20, TextColor = Color.FromArgb(_appSettings.BoxColor) };
-            var distFrame = new Frame
+            var distBorder = new Border
             {
-                CornerRadius = 10,
-                BorderColor = Color.FromArgb(_appSettings.BoxColor),
-                HasShadow = true,
+                Stroke = Color.FromArgb(_appSettings.BoxColor),
+                StrokeThickness = 2,
+                Padding = 15,
                 Content = new VerticalStackLayout
                 {
                     Spacing = 5,
@@ -101,14 +101,14 @@ namespace Raymond_Sean_RushHour
                     }
                 }
             };
-            statsGrid.Add(distFrame, 0, 0);
+            statsGrid.Add(distBorder, 0, 0);
 
             _coinsLabel = new Label { FontSize = 20, TextColor = Color.FromArgb(_appSettings.BoxColor) };
-            var coinsFrame = new Frame
+            var coinsBorder = new Border
             {
-                CornerRadius = 10,
-                BorderColor = Color.FromArgb(_appSettings.BoxColor),
-                HasShadow = true,
+                Stroke = Color.FromArgb(_appSettings.BoxColor),
+                StrokeThickness = 2,
+                Padding = 15,
                 Content = new VerticalStackLayout
                 {
                     Spacing = 5,
@@ -121,14 +121,14 @@ namespace Raymond_Sean_RushHour
                     }
                 }
             };
-            statsGrid.Add(coinsFrame, 1, 0);
+            statsGrid.Add(coinsBorder, 1, 0);
 
             _gamesLabel = new Label { FontSize = 20, TextColor = Color.FromArgb(_appSettings.BoxColor) };
-            var gamesFrame = new Frame
+            var gamesBorder = new Border
             {
-                CornerRadius = 10,
-                BorderColor = Color.FromArgb(_appSettings.BoxColor),
-                HasShadow = true,
+                Stroke = Color.FromArgb(_appSettings.BoxColor),
+                StrokeThickness = 2,
+                Padding = 15,
                 Content = new VerticalStackLayout
                 {
                     Spacing = 5,
@@ -141,8 +141,8 @@ namespace Raymond_Sean_RushHour
                     }
                 }
             };
-            statsGrid.Add(gamesFrame, 0, 1);
-            statsGrid.SetColumnSpan(gamesFrame, 2);
+            statsGrid.Add(gamesBorder, 0, 1);
+            statsGrid.SetColumnSpan(gamesBorder, 2);
 
             _mainStack.Add(statsGrid);
 

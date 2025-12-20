@@ -1,0 +1,5 @@
+GitHub Repository Link:
+https://github.com/SeanRaymond03/Raymond_Sean_RushHour
+
+This is the official repository for the Rush Hour game project.
+Built with .NET 9.0 and .NET MAUI.
