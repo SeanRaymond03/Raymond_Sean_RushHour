@@ -1,4 +1,4 @@
-# ?? Rush Hour - An Endless Driving Game
+#  Rush Hour - An Endless Driving Game
 
 ## Overview
 **Rush Hour** is an addictive endless driving game built with **.NET 9.0** and **.NET MAUI**. Navigate your customizable car through 5 lanes of traffic, avoid oncoming vehicles, collect coins, grab speed boosts, and beat your high score. The longer you survive, the faster the traffic becomes!
@@ -23,15 +23,15 @@
 | **16-Wheelers** | 5% | Brown, 4x length | Cab + trailer design with multiple axles |
 
 ### Pickups
-- ?? **Coins** (90%): Collect for +50 points
-- ? **Speed Boosts** (10%): Temporary +200 speed increase
+-  **Coins** (90%): Collect for +50 points
+-  **Speed Boosts** (10%): Temporary +200 speed increase
 
 ### Obstacles
-- ?? **Road Blockades**: Traffic cones with stone walls - avoid at all costs!
+-  **Road Blockades**: Traffic cones with stone walls - avoid at all costs!
 
 ---
 
-## ?? Settings & Customization
+##  Settings & Customization
 
 ### Game Settings
 - **Difficulty Mode**: Easy (0.7x), Medium (1.0x), Hard (1.5x) - affects vehicle spawn rate
@@ -44,7 +44,7 @@
 
 ---
 
-## ?? Statistics & Tracking
+##  Statistics & Tracking
 
 ### Tracked Metrics
 - **High Score**: Your personal best score (persisted)
@@ -56,7 +56,7 @@ All statistics are saved locally and persist between sessions.
 
 ---
 
-## ?? How to Play
+##  How to Play
 
 ### Controls
 | Action | Method |
@@ -70,9 +70,9 @@ All statistics are saved locally and persist between sessions.
 ### Gameplay Loop
 1. Start at the center of 5 lanes
 2. Use LEFT/RIGHT buttons to dodge oncoming traffic
-3. Collect ?? coins for points (+50 each)
-4. Grab ? speed boosts for temporary speed increase
-5. Avoid ?? cars and ?? blockades
+3. Collect  coins for points (+50 each)
+4. Grab speed boosts for temporary speed increase
+5. Avoid cars and blockades
 6. Survive as long as possible!
 
 ### Scoring System
@@ -97,26 +97,26 @@ All statistics are saved locally and persist between sessions.
 ### Project Structure
 ```
 Raymond_Sean_RushHour/
-??? GamePage.cs                 # Main game logic & rendering
-??? MainPage.xaml/cs            # Game launcher & stats
-??? SettingsPage.cs             # Settings & customization
-??? ScorePage.cs                # Statistics dashboard
-??? Models/
-?   ??? Obstacle.cs             # Enemy vehicle model
-?   ??? Pickup.cs               # Coins & boosts model
-?   ??? Player.cs               # Player car model
-?   ??? GameState.cs            # Game state management
-?   ??? AppSettings.cs          # User preferences persistence
-??? Services/
-?   ??? GameService.cs          # Game logic & scoring
-??? Resources/
-?   ??? Fonts/                  # BBHBogle-Regular.ttf
-?   ??? Images/                 # SVG assets
-?   ??? AppIcon/Splash/         # App branding
-??? Platforms/
-    ??? Android/                # Android-specific config
-    ??? iOS/                    # iOS-specific config
-    ??? Windows/                # Windows-specific config
+ GamePage.cs                 # Main game logic & rendering
+ MainPage.xaml/cs            # Game launcher & stats
+ SettingsPage.cs             # Settings & customization
+ ScorePage.cs                # Statistics dashboard
+ Models/
+   Obstacle.cs             # Enemy vehicle model
+ Pickup.cs               # Coins & boosts model
+ Player.cs               # Player car model
+ GameState.cs            # Game state management
+ AppSettings.cs          # User preferences persistence
+ Services/
+ GameService.cs          # Game logic & scoring
+ Resources/
+ Fonts/                  # BBHBogle-Regular.ttf
+ Images/                 # SVG assets
+ AppIcon/Splash/         # App branding
+ Platforms/
+     Android/                # Android-specific config
+     iOS/                    # iOS-specific config
+     Windows/                # Windows-specific config
 ```
 
 ### Game Loop (30ms Tick)
@@ -131,13 +131,13 @@ Raymond_Sean_RushHour/
 
 ---
 
-## ?? Platform Support
+##  Platform Support
 
 ### Supported Platforms
-- ? **Windows** (net9.0-windows10.0.19041.0)
-- ? **Android** (net9.0-android, API 21+)
-- ? **iOS** (net9.0-ios, v15.0+)
-- ? **macOS** (net9.0-maccatalyst)
+-  **Windows** (net9.0-windows10.0.19041.0)
+-  **Android** (net9.0-android, API 21+)
+-  **iOS** (net9.0-ios, v15.0+)
+-  **macOS** (net9.0-maccatalyst)
 
 ### Tested Environments
 - Windows 10/11 with .NET 9.0 SDK
@@ -203,7 +203,7 @@ dotnet build -f net9.0-android
 ### Speed Progression
 ```
 Base Speed = 5.5 units/frame
-Progressive Speed = Base × (1 + Distance/1000) × Difficulty Multiplier
+Progressive Speed = Base Ã— (1 + Distance/1000) Ã— Difficulty Multiplier
 Max Speed: Infinite (increases with distance)
 ```
 
@@ -274,7 +274,7 @@ This project is created for educational purposes as part of a college game devel
 ## ????? Developer
 
 **Sean Raymond**  
-Rush Hour © 2024  
+Rush Hour Â© 2024  
 Built with ?? using .NET MAUI and .NET 9.0
 
 ---
