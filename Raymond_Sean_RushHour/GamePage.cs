@@ -494,6 +494,12 @@ namespace Raymond_Sean_RushHour
             });
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _appSettings.Load();
+        }
+
         private void BuildUI()
         {
             var mainGrid = new Grid();
@@ -983,7 +989,7 @@ namespace Raymond_Sean_RushHour
             for (int i = _gameDrawable.Obstacles.Count - 1; i >= 0; i--)
             {
                 _gameDrawable.Obstacles[i].YPosition += _gameSpeed;
-                if (_gameDrawable.Obstacles[i].YPosition > 800)
+                if (_gameDrawable.Obstacles[i].YPosition > 1200)
                 {
                     _gameDrawable.Obstacles.RemoveAt(i);
                     _gameService.AddScore(10, _appSettings.DifficultyMode);
@@ -993,7 +999,7 @@ namespace Raymond_Sean_RushHour
             for (int i = _gameDrawable.Pickups.Count - 1; i >= 0; i--)
             {
                 _gameDrawable.Pickups[i].YPosition += _gameSpeed;
-                if (_gameDrawable.Pickups[i].YPosition > 800)
+                if (_gameDrawable.Pickups[i].YPosition > 1200)
                 {
                     _gameDrawable.Pickups.RemoveAt(i);
                 }
@@ -1002,7 +1008,7 @@ namespace Raymond_Sean_RushHour
             for (int i = _gameDrawable.RoadBlockades.Count - 1; i >= 0; i--)
             {
                 _gameDrawable.RoadBlockades[i].YPosition += _gameSpeed;
-                if (_gameDrawable.RoadBlockades[i].YPosition > 800)
+                if (_gameDrawable.RoadBlockades[i].YPosition > 1200)
                 {
                     _gameDrawable.RoadBlockades.RemoveAt(i);
                 }
@@ -1017,9 +1023,14 @@ namespace Raymond_Sean_RushHour
             // Check obstacles
             foreach (var obstacle in _gameDrawable.Obstacles.ToList())
             {
+                // Determine hitbox based on vehicle type
+                float obstacleHeight = 70; // Default car hitbox
+                if (obstacle.Type == "firetruck") obstacleHeight = 210; // Firetruck is 3x length
+                if (obstacle.Type == "truck") obstacleHeight = 280; // 16-wheeler is 4x length
+                
                 if (obstacle.Lane == _player.Lane && 
                     obstacle.YPosition >= playerY - 100 && 
-                    obstacle.YPosition <= playerY + playerHeight)
+                    obstacle.YPosition <= playerY + playerHeight + obstacleHeight)
                 {
                     _gameService.Lives--;
                     _gameDrawable.Obstacles.Remove(obstacle);
