@@ -61,7 +61,7 @@ All statistics are saved locally and persist between sessions.
 
 ---
 
-## ??? Technical Architecture
+##  Technical Architecture
 
 ### Technology Stack
 - **Framework**: .NET MAUI (.NET 9.0)
@@ -85,7 +85,7 @@ All statistics are saved locally and persist between sessions.
 - Physical Android devices
 
 
-## ?? Getting Started
+##  Getting Started
 
 ### Prerequisites
 - .NET 9.0 SDK installed
