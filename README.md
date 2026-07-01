@@ -1,11 +1,11 @@
 #  Rush Hour - An Endless Driving Game
 
 ## Overview
-**Rush Hour** is an addictive endless driving game built with **.NET 9.0** and **.NET MAUI**. Navigate your customizable car through 5 lanes of traffic, avoid oncoming vehicles, collect coins, grab speed boosts, and beat your high score. The longer you survive, the faster the traffic becomes!
+**Rush Hour** is an driving game built with **.NET 9.0** and **.NET MAUI**. Navigate your customizable car through 5 lanes of traffic, avoid oncoming vehicles, collect coins, grab speed boosts, and beat your high score. The longer you survive, the faster the traffic becomes!
 
----
 
-## ?? Game Features
+
+##  Game Features
 
 ### Core Gameplay
 - **Endless Driving**: Navigate downward through 5 lanes continuously
@@ -14,35 +14,11 @@
 - **Real-time Score**: Points increase based on distance traveled and coins collected
 - **Difficulty Scaling**: Game gets progressively harder as you travel further
 
-### Vehicle Types
-| Vehicle | Spawn Rate | Appearance | Special Feature |
-|---------|-----------|-----------|-----------------|
-| **Regular Cars** | 65% | Colored vehicles | Yellow headlights |
-| **Police Cars** | 10% | White | Red & Blue sirens with light beams |
-| **Firetrucks** | 10% | Red, 3x length | Red & Blue sirens with light beams |
-| **16-Wheelers** | 5% | Brown, 4x length | Cab + trailer design with multiple axles |
+<img width="525" height="736" alt="RushHourGamePlay" src="https://github.com/user-attachments/assets/4b9ba0f7-58d7-4715-be83-88be40e7e5f2" />
+<img width="525" height="730" alt="RushHourSettings" src="https://github.com/user-attachments/assets/6d580d49-8ba1-455b-9b3e-b51f7ef8925b" />
+<img width="524" height="752" alt="RushHourLeaderboard" src="https://github.com/user-attachments/assets/b6fb21d4-d2bf-4aa6-8fa7-d2a10b98e4b0" />
+<img width="524" height="734" alt="RushHourGameOver" src="https://github.com/user-attachments/assets/4e929335-d5c8-422f-b678-1b279b30d5a7" />
 
-### Pickups
--  **Coins** (90%): Collect for +50 points
--  **Speed Boosts** (10%): Temporary +200 speed increase
-
-### Obstacles
--  **Road Blockades**: Traffic cones with stone walls - avoid at all costs!
-
----
-
-##  Settings & Customization
-
-### Game Settings
-- **Difficulty Mode**: Easy (0.7x), Medium (1.0x), Hard (1.5x) - affects vehicle spawn rate
-- **Time Limit**: Set a time limit (0 = Unlimited)
-- **Font Size**: Adjust UI text size (10-24px)
-
-### Visual Customization
-- **Dark Mode Toggle**: Light/Dark theme with dynamic text colors
-- **Player Car Color**: Choose from 6 colors (Red, Blue, Yellow, Green, Cyan, Magenta)
-
----
 
 ##  Statistics & Tracking
 
@@ -94,42 +70,6 @@ All statistics are saved locally and persist between sessions.
 - **Persistence**: MAUI Preferences API
 - **Threading**: MAUI Dispatcher/IDispatcherTimer
 
-### Project Structure
-```
-Raymond_Sean_RushHour/
- GamePage.cs                 # Main game logic & rendering
- MainPage.xaml/cs            # Game launcher & stats
- SettingsPage.cs             # Settings & customization
- ScorePage.cs                # Statistics dashboard
- Models/
-   Obstacle.cs             # Enemy vehicle model
- Pickup.cs               # Coins & boosts model
- Player.cs               # Player car model
- GameState.cs            # Game state management
- AppSettings.cs          # User preferences persistence
- Services/
- GameService.cs          # Game logic & scoring
- Resources/
- Fonts/                  # BBHBogle-Regular.ttf
- Images/                 # SVG assets
- AppIcon/Splash/         # App branding
- Platforms/
-     Android/                # Android-specific config
-     iOS/                    # iOS-specific config
-     Windows/                # Windows-specific config
-```
-
-### Game Loop (30ms Tick)
-```
-1. Update game state
-2. Spawn vehicles (probabilistic)
-3. Move all game objects
-4. Check collisions
-5. Update UI
-6. Render canvas
-```
-
----
 
 ##  Platform Support
 
@@ -144,7 +84,6 @@ Raymond_Sean_RushHour/
 - Android Emulator (API 31+)
 - Physical Android devices
 
----
 
 ## ?? Getting Started
 
@@ -167,80 +106,8 @@ dotnet build -f net9.0-android
 # Deploy to emulator or device
 ```
 
-### Run the Game
-1. Press START on the main menu
-2. Select difficulty
-3. Press PLAY
-4. Use LEFT/RIGHT to navigate
-5. Survive as long as possible!
 
----
-
-## ?? Visual Design
-
-### Color Scheme
-- **Background**: Grey asphalt (#808080)
-- **UI Accent**: Lilac Purple (#B19CD9)
-- **Text**: White (light mode), Black (dark mode)
-- **Lanes**: White dashed lines
-- **Player Car**: Customizable (6 colors)
-
-### Asset Details
-- **Font**: BBHBogle-Regular.ttf (custom game font)
-- **Graphics**: All rendered via canvas API (no external image dependencies)
-- **Icons**: SVG-based resources
-
----
-
-## ?? Game Mechanics Deep Dive
-
-### Vehicle Spawning
-- Spawn rate decreases on higher difficulty
-- Easy: ~43ms between spawns
-- Medium: ~30ms between spawns
-- Hard: ~20ms between spawns
-
-### Speed Progression
-```
-Base Speed = 5.5 units/frame
-Progressive Speed = Base × (1 + Distance/1000) × Difficulty Multiplier
-Max Speed: Infinite (increases with distance)
-```
-
-### Collision Detection
-- Hitbox-based collision with vehicle position
-- 100px lead distance for detection
-- Instant life loss on collision
-
-### Boost Mechanics
-- Activates on pickup
-- Adds +200 speed temporarily
-- Duration: ~200ms of boost effect
-
----
-
-## ?? Data Persistence
-
-### Saved Data
-```
-AppSettings (per-device, encrypted)
-??? DarkMode (bool)
-??? FontSize (int)
-??? DifficultyMode (string)
-??? TimeLimit (int)
-??? BoxColor (hex string)
-??? HighScore (int)
-
-Device Preferences
-??? GamesPlayed (int)
-??? TotalDistance (int)
-??? TotalCoins (int)
-??? HighScore (int)
-```
-
----
-
-## ?? Known Issues & Limitations
+##  Known Issues & Limitations
 
 - Police car lights use same position (stacked) - visual effect intended
 - No sound effects (requires platform-specific audio implementation)
@@ -248,47 +115,7 @@ Device Preferences
 - No leaderboards
 - Time limit feature works but not heavily featured
 
----
-
-## ?? Future Enhancements
-
-Potential features for future versions:
-- ?? Sound effects for collisions, pickups, engine
-- ?? Background music
-- ?? Global leaderboards
-- ??? Achievement system
-- ?? Unlockable vehicle skins
-- ?? Power-ups (shield, slow-motion)
-- ?? Night mode graphics
-- ?? Custom car image uploads
-- ?? Replay system
-
----
-
-## ?? License
-
-This project is created for educational purposes as part of a college game development assignment.
-
----
-
-## ????? Developer
 
 **Sean Raymond**  
 Rush Hour © 2024  
-Built with ?? using .NET MAUI and .NET 9.0
-
----
-
-## ?? Repository
-
-GitHub: [https://github.com/SeanRaymond03/Raymond_Sean_RushHour](https://github.com/SeanRaymond03/Raymond_Sean_RushHour)
-
----
-
-## ?? Support
-
-For issues, bugs, or feature requests, please visit the GitHub repository and create an issue.
-
----
-
-**Enjoy the Rush Hour experience! ????**
+Built using .NET MAUI and .NET 9.0
